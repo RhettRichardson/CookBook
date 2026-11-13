@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="Rhett's personal cookbook. Search recipes, scale a batch, and cook step by step — online or offline in the kitchen."
+    />
+    <meta name="theme-color" content="#c2512c" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Cookbook" />
+    <meta name="application-name" content="Rhett's Cookbook" />
+    <meta property="og:title" content="Rhett's Cookbook" />
+    <meta
+      property="og:description"
+      content="A personal cookbook for the kitchen — search, scale, and cook step by step."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rhettrichardson.github.io/CookBook/" />
+    <meta property="og:image" content="https://rhettrichardson.github.io/CookBook/icons/icon-512.png" />
+    <title>Rhett's Cookbook</title>
+    <link rel="icon" type="image/png" href="%BASE_URL%favicon.png" />
+    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png" />
+    <link rel="manifest" href="%BASE_URL%manifest.webmanifest" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('cookbook-theme');
+          var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var dark = stored === 'dark' || (stored !== 'light' && systemDark);
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', dark ? '#16120f' : '#c2512c');
+        } catch (error) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
